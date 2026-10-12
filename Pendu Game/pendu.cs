@@ -12,6 +12,16 @@ char[] motcache = new char[mot.Length];
 
 bool isFound = false;
 
+
+void affichageMot()
+    {
+          for (int i = 0; i < mot.Length; i++)
+            {
+                Console.Write(motcache[i] + " ");
+            }
+    }
+
+
 //initalisation pour afficher les cases vide en fonction de la longueur du mot
 for (int i = 0; i < mot.Length; i++)
 {
@@ -19,12 +29,14 @@ for (int i = 0; i < mot.Length; i++)
 }
 do
 {
+    string listeDeLettres = string.Join(", ", lettresUtilises);//on transforme la liste de mot en un seul string
+    Console.WriteLine("\nLettres deja utilises : "+ listeDeLettres);
+    Console.WriteLine("il te reste " + (maxlives - death) + " vies");
 
     //affichage des lettres
-    for (int i = 0; i < mot.Length; i++)
-    {
-        Console.Write(motcache[i] + " ");
-    }
+    affichageMot();
+          
+    Console.Write("\n >>: ");
     //etape de verification
     if (char.TryParse(Console.ReadLine()!, out typedLetter) && char.IsLetter(typedLetter))
     {
@@ -40,7 +52,7 @@ do
                 for (int i = 0; i < mot.Length; i++)
                 {
 
-                    if (mot[i] == typedLetter)  //on check si la lettre fait parti du mot et n'a pas deja ete trouve 
+                    if (mot[i] == typedLetter) 
                     {
                         motcache[i] = typedLetter;
                     }
@@ -56,7 +68,7 @@ do
             else
                 {
                     death++;
-                    Console.WriteLine("La lettre n'est pas dans le mot, plus que " + (maxlives - death) + " vies"); // on retire une vie et on dit que le mot n'est pqs trouve
+                    Console.WriteLine("La lettre n'est pas dans le mot"); // on retire une vie et on dit que le mot n'est pqs trouve
                 }
 
         }
@@ -74,9 +86,11 @@ do
 while (!isFound && maxlives > death);
 if (isFound == true)
 {
-    Console.WriteLine("Win");
+   affichageMot();
+
+    Console.WriteLine("\nWin");
 }
 else
 {
-    Console.WriteLine("Perdu !!");
+    Console.WriteLine("Perdu !! le mot etait : "+ mot );
 }

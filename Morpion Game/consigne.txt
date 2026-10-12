@@ -1,0 +1,107 @@
+==========================================
+  MORPION EN C# (CONSOLE) - CONSIGNES
+==========================================
+
+REGLES DU JEU
+-------------
+- Grille de 3 x 3 cases, deux joueurs humains qui jouent a tour
+  de role sur le meme clavier : X puis O.
+- A chaque tour, le joueur choisit une case libre (de 1 a 9).
+- Victoire : 3 symboles identiques alignes (ligne, colonne ou
+  diagonale).
+- Match nul : la grille est pleine et personne n'a gagne.
+
+
+AFFICHAGE A CHAQUE TOUR
+-----------------------
+- La grille complete avec les symboles deja joues.
+- Les numeros des cases libres (ou une aide pour savoir
+  quel numero correspond a quelle case).
+- Le nom du joueur dont c'est le tour.
+
+
+CAHIER DES CHARGES (A FAIRE DANS L'ORDRE)
+-----------------------------------------
+Tester apres chaque etape avant de passer a la suivante.
+
+[ ] Etape 1 : la grille vide
+    Creer la grille (tableau a 2 dimensions) et l'afficher.
+    Rien d'autre.
+
+[ ] Etape 2 : un seul coup
+    Demander un numero de case, le convertir en ligne et
+    colonne, placer un symbole, reafficher la grille.
+
+[ ] Etape 3 : la validation
+    - Le numero doit etre un nombre entre 1 et 9.
+    - La case doit etre libre.
+    Sinon, redemander sans perdre le tour.
+
+[ ] Etape 4 : l'alternance des joueurs
+    X puis O puis X... Un tour refuse ne change pas de joueur.
+
+[ ] Etape 5 : la detection de victoire
+    Verifier les 3 lignes, les 3 colonnes et les 2 diagonales.
+    C'est la partie la plus difficile : y aller progressivement
+    (d'abord les lignes, tester, puis les colonnes, etc.).
+
+[ ] Etape 6 : le match nul
+    Detecter une grille pleine sans gagnant.
+
+[ ] Etape 7 : la fin de partie
+    Afficher le resultat (qui a gagne, ou nul) puis proposer
+    de rejouer.
+
+
+OUTILS A EXPLORER SOI-MEME (mots-cles a chercher)
+-------------------------------------------------
+- char[,] : tableau a deux dimensions, et .GetLength(0) / (1)
+- division entiere (/) et modulo (%) pour passer d'un
+  numero de case (1 a 9) a une ligne et une colonne
+- methodes (static) avec parametres et valeur de retour
+  (return), y compris passer un tableau en parametre
+- bool comme type de retour pour repondre a une question
+  ("la partie est-elle gagnee ?")
+
+Sources : documentation Microsoft (learn.microsoft.com) et
+le cours de L1.
+
+
+REGLES DE TRAVAIL
+-----------------
+1. Ecrire le plan en francais AVANT de coder, et l'envoyer
+   pour relecture.
+2. Decouper le code en methodes (OBLIGATOIRE pour ce jeu).
+   Au minimum :
+   - une methode qui affiche la grille
+   - une methode qui verifie si un coup est valide
+   - une methode qui dit si un joueur a gagne
+   La boucle principale ne doit contenir que l'enchainement
+   de ces appels.
+3. Pas de nombres magiques : la taille de la grille dans une
+   constante (const int taille = 3;).
+4. Formater le fichier (Shift + Alt + F dans VS Code) et verifier
+   que chaque else est colle au bon if.
+5. Un seul endroit pour chaque decision : ne pas repeter la
+   meme verification a plusieurs endroits.
+
+
+TESTS A PASSER AVANT DE CONSIDERER QUE C'EST FINI
+--------------------------------------------------
+[ ] Victoire en ligne, en colonne, sur chaque diagonale.
+[ ] Victoire de X et victoire de O (le bon gagnant est annonce).
+[ ] Match nul complet.
+[ ] Victoire exactement au 9e coup (doit annoncer une victoire,
+    pas un match nul).
+[ ] Jouer sur une case deja occupee.
+[ ] Entrer 0, 10, -1, une lettre, une phrase, une entree vide.
+[ ] Un tour refuse ne fait pas changer de joueur.
+[ ] Rejouer : la grille repart bien vide.
+
+
+DEFIS BONUS (SEULEMENT QUAND TOUT MARCHE)
+-----------------------------------------
+- Jouer contre l'ordinateur (d'abord coups aleatoires, puis
+  une IA qui bloque ou qui gagne si elle le peut).
+- Compter les scores sur plusieurs parties.
+- Grille de taille variable (4 x 4, alignement de 4).
