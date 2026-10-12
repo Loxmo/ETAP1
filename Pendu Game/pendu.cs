@@ -11,12 +11,6 @@ char typedLetter;
 char[] tableau = new char[mot.Length];
 
 bool isFound = false;
-//choix du mot
-
-
-
-
-
 
 //initalisation pour afficher les cases vide en fonction de la longueur du mot
 for(int i = 0; i < mot.Length; i++)
