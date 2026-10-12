@@ -9,7 +9,10 @@ bool isFound = false;
 do
 {
 
-
+    for(int l = 0 ; l < mot.Length; l += 1)
+    {
+        Console.Write("_ ");
+    }
 
 
 
@@ -22,7 +25,10 @@ do
         if(hasLetter == true)
         {
            Console.WriteLine("c'est une lettre du mot");
-
+            for(int i = 0; mot.Length > i; i++)
+            {
+                
+            }
         }
 
     }
