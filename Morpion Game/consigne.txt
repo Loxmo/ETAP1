@@ -24,7 +24,7 @@ CAHIER DES CHARGES (A FAIRE DANS L'ORDRE)
 -----------------------------------------
 Tester apres chaque etape avant de passer a la suivante.
 
-[ ] Etape 1 : la grille vide
+[X] Etape 1 : la grille vide
     Creer la grille (tableau a 2 dimensions) et l'afficher.
     Rien d'autre.
 
