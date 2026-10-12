@@ -1,5 +1,3 @@
-using System.Security.Cryptography.X509Certificates;
-
 bool gameEnded = false;
 int horizontal;
 int vertical;
@@ -20,27 +18,25 @@ static void calculDesCoordonees(int cellule)
 {
     Console.WriteLine("Quelle case jouer ?");
     cellule = int.Parse(Console.ReadLine());
-    if(cellule < 3)
+    if (cellule < 3)
     {
         horizontal = 1;
-        return;
+        
     }
-    else if(cellule > 6)
+    else if (cellule > 6)
     {
-        horizontal = 3;
-        return;
+        horizontal = 3;    
     }
     else
     {
         horizontal = 2;
-        return;
     }
 }
 
 
 do
 {
-    
+
 }
 while (!gameEnded);
 Console.WriteLine("fin de la partie");
