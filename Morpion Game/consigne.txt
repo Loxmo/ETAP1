@@ -32,12 +32,12 @@ Tester apres chaque etape avant de passer a la suivante.
     Demander un numero de case, le convertir en ligne et
     colonne, placer un symbole, reafficher la grille.
 
-[ ] Etape 3 : la validation
+[X] Etape 3 : la validation
     - Le numero doit etre un nombre entre 1 et 9.
     - La case doit etre libre.
     Sinon, redemander sans perdre le tour.
 
-[ ] Etape 4 : l'alternance des joueurs
+[X] Etape 4 : l'alternance des joueurs
     X puis O puis X... Un tour refuse ne change pas de joueur.
 
 [ ] Etape 5 : la detection de victoire
