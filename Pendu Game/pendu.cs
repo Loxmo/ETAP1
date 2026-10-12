@@ -1,7 +1,7 @@
 string mot = "pomme";
 
 const int maxlives = 6;
-int lives = 0;
+int death = 0;
 
 char typedLetter;
 char[] tableau = new char[mot.Length];
@@ -14,6 +14,7 @@ for(int i = 0; i < mot.Length; i++)
     }
 do
 {
+    
     //affichage des lettres
     for(int i = 0; i < mot.Length; i++)
     {
@@ -28,11 +29,21 @@ do
            Console.WriteLine("c'est une lettre du mot");
             for (int i = 0; i < mot.Length; i++)
             {
-                if(mot[i] == typedLetter)
+                if(mot[i] == typedLetter )
                 {
                     tableau[i] = typedLetter;
                 }
             }
+            //on verifie si le mot est trouve
+            if(Array.IndexOf(tableau, '_')== -1)
+            {
+                isFound = true;
+            }
+        }
+        else
+        {
+            death++;
+            Console.WriteLine("La lettre n'est pas dans le mot, plus que " + (maxlives-death) + "vies");
         }
 
     }
@@ -41,5 +52,13 @@ do
         Console.WriteLine("ce n'est pas une lettre !");
     }
 }
-while(isFound != true && maxlives > lives);
-Console.WriteLine("Win");
+while(isFound != true && maxlives > death);
+if(isFound == true)
+{
+    Console.WriteLine("Win");
+}
+else
+{
+    Console.WriteLine("Perdu !!");
+}
+    

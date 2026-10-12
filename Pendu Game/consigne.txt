@@ -24,20 +24,20 @@ CAHIER DES CHARGES (A FAIRE DANS L'ORDRE)
 -----------------------------------------
 Tester apres chaque etape avant de passer a la suivante.
 
-[ ] Etape 1 : le mot fixe
+[X] Etape 1 : le mot fixe
     Mot ecrit en dur dans le code, affiche entierement en _.
 
-[ ] Etape 2 : une seule lettre
+[X] Etape 2 : une seule lettre
     Demander une lettre et verifier si elle est dans le mot.
     Afficher simplement "presente" ou "absente".
 
-[ ] Etape 3 : l'affichage qui se met a jour
+[X] Etape 3 : l'affichage qui se met a jour
     Garder en memoire les lettres trouvees.
     Afficher le mot avec les lettres connues et des _ pour
     les autres. C'est le coeur du jeu et la partie la plus
     difficile : prendre son temps.
 
-[ ] Etape 4 : la boucle de jeu
+[X] Etape 4 : la boucle de jeu
     Repeter jusqu'a la victoire ou la defaite, en gerant
     les vies.
 
