@@ -28,7 +28,7 @@ Tester apres chaque etape avant de passer a la suivante.
     Creer la grille (tableau a 2 dimensions) et l'afficher.
     Rien d'autre.
 
-[ ] Etape 2 : un seul coup
+[X] Etape 2 : un seul coup
     Demander un numero de case, le convertir en ligne et
     colonne, placer un symbole, reafficher la grille.
 

@@ -1,27 +1,41 @@
-using System.Runtime.CompilerServices;
-
 bool gameEnded = false;
-char[] grille = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+char[,] grille = new char[3, 3];
 
 
-static void affichageGrille(char[] b)
+static void affichageGrille(char[,] b)
 {
-    Console.Clear();
-    Console.WriteLine($" {b[0]} | {b[1]} | {b[2]} ");
+    Console.WriteLine($" {b[0, 0]}  | {b[0, 1]}  | {b[0, 2]} ");
     Console.WriteLine("---+---+---");
-    Console.WriteLine($" {b[3]} | {b[4]} | {b[5]} ");
+    Console.WriteLine($" {b[1, 0]}  | {b[1, 1]}  | {b[1, 2]} ");
     Console.WriteLine("---+---+---");
-    Console.WriteLine($" {b[6]} | {b[7]} | {b[8]} ");
+    Console.WriteLine($" {b[2, 0]}  | {b[2, 1]}  | {b[2, 2]} ");
 }
 
-void calculDesCoordonees(out int ligne, out int colonne)
+static void calculDesCoordonees(char[,] g)
 {
+
     Console.WriteLine("Quelle case jouer ? ");
-    int cellule = int.Parse(Console.ReadLine()) - 1;
-    colonne = cellule % 3;
-    ligne = cellule / 3;
+    if (int.TryParse(Console.ReadLine(), out int cellule) && cellule < 9 && cellule > 0) // on check si c'est un chiffre entre 1 et 9
+    {
+        cellule -= 1;
+        int colonne = cellule % 3;
+        int ligne = cellule / 3;
+        if(g[ligne,colonne] == 'X' && g[ligne,colonne] == 'O')
+        {
+            
+        }
+        g[ligne, colonne] = 'X';
+    }
+    else
+    {
+        Console.WriteLine("Ce n'est pas un chiffre contenu entre 1 et 9");
+    }
 
 }
 
-
-affichageGrille(grille);
+do
+{
+    affichageGrille(grille);
+    calculDesCoordonees(grille);
+}
+while (!gameEnded);
