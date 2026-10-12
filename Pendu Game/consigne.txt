@@ -41,7 +41,7 @@ Tester apres chaque etape avant de passer a la suivante.
     Repeter jusqu'a la victoire ou la defaite, en gerant
     les vies.
 
-[ ] Etape 5 : les cas particuliers
+[X] Etape 5 : les cas particuliers
     - Une lettre deja proposee ne coute pas de vie.
     - L'entree doit etre une seule lettre (pas deux, pas un
       chiffre, pas du vide).

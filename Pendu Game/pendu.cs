@@ -7,6 +7,13 @@ char typedLetter;
 char[] tableau = new char[mot.Length];
 
 bool isFound = false;
+//choix du mot
+
+
+
+
+
+
 //initalisation
 for(int i = 0; i < mot.Length; i++)
     {
@@ -23,15 +30,19 @@ do
     //etape de verification
     if(char.TryParse(Console.ReadLine()!,out typedLetter))
     {
-        bool hasLetter = mot.Contains(typedLetter);
+        bool hasLetter = mot.ToLower().Contains(char.ToLower(typedLetter));
         if(hasLetter == true)
         {
            Console.WriteLine("c'est une lettre du mot");
             for (int i = 0; i < mot.Length; i++)
             {
-                if(mot[i] == typedLetter )
+                if(mot[i] == typedLetter && tableau[i] == '_')
                 {
                     tableau[i] = typedLetter;
+                }
+                else if (mot[i] == typedLetter && tableau[i] != '_')
+                {
+                    Console.WriteLine("la lettre a deja ete trouvee");
                 }
             }
             //on verifie si le mot est trouve
@@ -43,7 +54,7 @@ do
         else
         {
             death++;
-            Console.WriteLine("La lettre n'est pas dans le mot, plus que " + (maxlives-death) + "vies");
+            Console.WriteLine("La lettre n'est pas dans le mot, plus que " + (maxlives-death) + " vies");
         }
 
     }
