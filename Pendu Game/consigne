@@ -1,0 +1,93 @@
+==========================================
+  PENDU EN C# (CONSOLE) - CONSIGNES
+==========================================
+
+REGLES DU JEU
+-------------
+- Le programme choisit un mot secret dans une liste.
+- Le joueur propose UNE lettre a la fois.
+- Si la lettre est dans le mot, elle apparait a sa place.
+  Sinon, le joueur perd une vie.
+- Victoire : tout le mot est decouvert.
+- Defaite : plus aucune vie (6 par exemple).
+
+
+AFFICHAGE A CHAQUE TOUR
+-----------------------
+- Le mot avec les lettres non trouvees remplacees par _
+  Exemple : _ A _ A _ A
+- Le nombre de vies restantes.
+- Les lettres deja proposees.
+
+
+CAHIER DES CHARGES (A FAIRE DANS L'ORDRE)
+-----------------------------------------
+Tester apres chaque etape avant de passer a la suivante.
+
+[ ] Etape 1 : le mot fixe
+    Mot ecrit en dur dans le code, affiche entierement en _.
+
+[ ] Etape 2 : une seule lettre
+    Demander une lettre et verifier si elle est dans le mot.
+    Afficher simplement "presente" ou "absente".
+
+[ ] Etape 3 : l'affichage qui se met a jour
+    Garder en memoire les lettres trouvees.
+    Afficher le mot avec les lettres connues et des _ pour
+    les autres. C'est le coeur du jeu et la partie la plus
+    difficile : prendre son temps.
+
+[ ] Etape 4 : la boucle de jeu
+    Repeter jusqu'a la victoire ou la defaite, en gerant
+    les vies.
+
+[ ] Etape 5 : les cas particuliers
+    - Une lettre deja proposee ne coute pas de vie.
+    - L'entree doit etre une seule lettre (pas deux, pas un
+      chiffre, pas du vide).
+    - Majuscules et minuscules traitees de la meme facon.
+
+[ ] Etape 6 : le mot aleatoire
+    Remplacer le mot fixe par un tirage dans une liste de
+    10 mots minimum.
+
+
+OUTILS A EXPLORER SOI-MEME (mots-cles a chercher)
+-------------------------------------------------
+- string, .Length, acces a un caractere par indice (mot[i])
+- char
+- List<char> et sa methode .Contains(...)
+- boucles for / foreach pour parcourir un mot
+- .ToLower() / .ToUpper()
+- tableau de mots (string[]) et rand.Next(...)
+
+Sources : documentation Microsoft (learn.microsoft.com) et
+le cours de L1.
+
+
+REGLES DE TRAVAIL
+-----------------
+1. Ecrire le plan en francais AVANT de coder.
+2. Pas de nombres magiques : les vies dans une constante
+   (exemple : const int maxLives = 6;).
+3. Aucun mot de la liste avec des accents.
+4. Decouper le code en methodes si on se perd (par exemple
+   une methode pour afficher le mot).
+
+
+TESTS A PASSER AVANT DE CONSIDERER QUE C'EST FINI
+--------------------------------------------------
+[ ] Gagner sans aucune erreur.
+[ ] Perdre en epuisant toutes les vies.
+[ ] Proposer deux fois la meme lettre.
+[ ] Mot avec une lettre repetee (ex : "banane", taper "a"
+    doit reveler les trois d'un coup).
+[ ] Entrer "A" au lieu de "a".
+[ ] Entrer une phrase, un chiffre, une entree vide.
+
+
+DEFIS BONUS (SEULEMENT QUAND TOUT MARCHE)
+-----------------------------------------
+- Dessiner le pendu en art ASCII selon le nombre d'erreurs.
+- Proposer de rejouer a la fin.
+- Lire les mots depuis un fichier texte.
