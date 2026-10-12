@@ -1,42 +1,24 @@
 bool gameEnded = false;
+char[] grille = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
 int horizontal;
 int vertical;
 
-static void affichageGrille()
+static void affichageGrille(char[] b)
 {
-    for (int i = 0; i < 3; i++)
-    {
-        for (int l = 0; l < 3; l++)
-        {
-            Console.Write("# ");
-        }
-        Console.Write("\n");
-    }
+    Console.Clear();
+    Console.WriteLine($" {b[0]} | {b[1]} | {b[2]} ");
+    Console.WriteLine("---+---+---");
+    Console.WriteLine($" {b[3]} | {b[4]} | {b[5]} ");
+    Console.WriteLine("---+---+---");
+    Console.WriteLine($" {b[6]} | {b[7]} | {b[8]} ");
 }
 
-static void calculDesCoordonees(int cellule)
+void calculDesCoordonees(int cellule)
 {
-    Console.WriteLine("Quelle case jouer ?");
+    Console.WriteLine("Quelle case jouer ? ");
     cellule = int.Parse(Console.ReadLine());
-    if (cellule < 3)
-    {
-        horizontal = 1;
-        
-    }
-    else if (cellule > 6)
-    {
-        horizontal = 3;    
-    }
-    else
-    {
-        horizontal = 2;
-    }
+   
 }
 
 
-do
-{
-
-}
-while (!gameEnded);
-Console.WriteLine("fin de la partie");
+affichageGrille(grille);
