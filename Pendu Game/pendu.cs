@@ -1,7 +1,10 @@
-string mot = "pomme";
+
 
 const int maxlives = 6;
 int death = 0;
+
+List<string> mots = new List<string> { "pomme", "poire", "abricot", "fraise", "carotte", "patate", "radis", "courgette", "haricot", "lentilles" };
+string mot = mots[Random.Shared.Next(mots.Count)];
 
 char typedLetter;
 char[] tableau = new char[mot.Length];
