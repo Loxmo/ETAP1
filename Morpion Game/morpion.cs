@@ -1,7 +1,8 @@
+using System.Runtime.CompilerServices;
+
 bool gameEnded = false;
 char[] grille = { '1', '2', '3', '4', '5', '6', '7', '8', '9' };
-int horizontal;
-int vertical;
+
 
 static void affichageGrille(char[] b)
 {
@@ -13,11 +14,13 @@ static void affichageGrille(char[] b)
     Console.WriteLine($" {b[6]} | {b[7]} | {b[8]} ");
 }
 
-void calculDesCoordonees(int cellule)
+void calculDesCoordonees(out int ligne, out int colonne)
 {
     Console.WriteLine("Quelle case jouer ? ");
-    cellule = int.Parse(Console.ReadLine());
-   
+    int cellule = int.Parse(Console.ReadLine()) - 1;
+    colonne = cellule % 3;
+    ligne = cellule / 3;
+
 }
 
 
