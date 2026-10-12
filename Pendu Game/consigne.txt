@@ -47,7 +47,7 @@ Tester apres chaque etape avant de passer a la suivante.
       chiffre, pas du vide).
     - Majuscules et minuscules traitees de la meme facon.
 
-[ ] Etape 6 : le mot aleatoire
+[X] Etape 6 : le mot aleatoire
     Remplacer le mot fixe par un tirage dans une liste de
     10 mots minimum.
 
