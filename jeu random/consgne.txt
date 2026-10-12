@@ -1,0 +1,9 @@
+choisir un nombre secret  			 done
+mettre le compteur d'essais à 0      done
+répéter :                           
+    demander un nombre au joueur
+    ajouter 1 au compteur
+    si trop petit → le dire
+    si trop grand → le dire
+    si égal → féliciter et arrêter
+afficher le nombre d'essais
