@@ -45,7 +45,7 @@ static bool jouerCoup(char[,] g, char symbole)
 
 static bool aGagne(char[,]g,char symbole )
 {
-    
+    //faudrait ptet faire un systeme qui voit que des que 3symboles on la meme collonne ou ligne il fasse gagne d'abord
 }
 
 
