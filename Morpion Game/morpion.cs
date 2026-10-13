@@ -1,6 +1,8 @@
 bool gameEnded = false;
 bool player1isplaying = true;
-char[,] grille = new char[3, 3];
+const int taille = 3;
+char[,] grille = new char[taille, taille];//on creer une grille a deux dimension
+char symbole;
 
 
 static void affichageGrille(char[,] b)
@@ -12,36 +14,31 @@ static void affichageGrille(char[,] b)
     Console.WriteLine($" {b[2, 0]}  | {b[2, 1]}  | {b[2, 2]} ");
 }
 
-void calculDesCoordonees(char[,] g)
+static bool jouerCoup(char[,] g, char symbole)
 {
 
     Console.WriteLine("Quelle case jouer ? ");
     if (int.TryParse(Console.ReadLine(), out int cellule) && cellule <= 9 && cellule > 0) // on check si c'est un chiffre entre 1 et 9
     {
         cellule -= 1;
-        int colonne = cellule % 3;
-        int ligne = cellule / 3;
+        int colonne = cellule % taille;
+        int ligne = cellule / taille;
+
         if (g[ligne, colonne] == '\0')
         {
-            if (player1isplaying)
-            {
-                g[ligne, colonne] = 'X';
-                player1isplaying = false;
-            }
-            else if (!player1isplaying)
-            {
-                g[ligne, colonne] = 'O';
-                player1isplaying = true;
-            }
+            g[ligne, colonne] = symbole;
+            return true;
         }
         else
         {
             Console.WriteLine("Case deja remplie");
+            return false;
         }
     }
     else
     {
         Console.WriteLine("Ce n'est pas un chiffre contenu entre 1 et 9");
+        return false;
     }
 
 }
@@ -49,6 +46,19 @@ void calculDesCoordonees(char[,] g)
 do
 {
     affichageGrille(grille);
-    calculDesCoordonees(grille);
+
+    if (player1isplaying)
+    {
+        symbole = 'X';
+    }
+    else
+    {
+        symbole = 'O';
+    }
+    bool coupjoue = jouerCoup(grille, symbole);
+    if (coupjoue)
+    {
+        player1isplaying = !player1isplaying;
+    }
 }
 while (!gameEnded);
