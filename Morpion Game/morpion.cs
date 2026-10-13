@@ -43,6 +43,16 @@ static bool jouerCoup(char[,] g, char symbole)
 
 }
 
+static bool aGagne(char[,]g,char symbole )
+{
+    
+}
+
+
+
+
+
+
 do
 {
     affichageGrille(grille);
