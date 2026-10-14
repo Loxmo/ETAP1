@@ -70,5 +70,6 @@ do
     {
         player1isplaying = !player1isplaying;
     }
+    aGagne(grille, symbole);
 }
 while (!gameEnded);

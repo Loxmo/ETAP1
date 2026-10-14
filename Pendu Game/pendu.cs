@@ -13,7 +13,7 @@ char[] motcache = new char[mot.Length];
 bool isFound = false;
 
 
-static void affichageMot()
+void affichageMot()
     {
           for (int i = 0; i < mot.Length; i++)
             {
