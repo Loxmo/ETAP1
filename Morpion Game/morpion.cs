@@ -48,10 +48,10 @@ static bool aGagne(char[,] g, char symbole)
 {
     for (int i = 0; i < taille; i++)
     {
-       bool ligneComplete = true;
-       for(int j = 0; j < taille; j++)
+        bool ligneComplete = true;
+        for (int j = 0; j < taille; j++)
         {
-            if(g[i,j] != symbole)
+            if (g[i, j] != symbole)
             {
                 ligneComplete = false;
             }
@@ -61,31 +61,39 @@ static bool aGagne(char[,] g, char symbole)
             return true;
         }
         bool colonneComplete = true;
-        for(int l = 0; l < taille; l++)
+        for (int l = 0; l < taille; l++)
         {
-            if(g[l,i] != symbole)
+            if (g[l, i] != symbole)
             {
                 colonneComplete = false;
             }
         }
-        if(colonneComplete)
+        if (colonneComplete)
         {
             return true;
         }
-       
-        if(g[i,i] == symbole)
+        bool diagoComplete = false;
+        for (int j = 0; j < taille; j++)
         {
-           return true;
+            if(g[i,i] == symbole && g[i+1, i+1] == symbole && g[i+2,i+2] == symbole )
+            {
+                
+            }
         }
-        else if(g[taille-1-i, i] == symbole)
+        if(diagoComplete)
         {
             return true;
         }
-        
-    }
-    return false;
 
+    }
+
+
+    return false;
 }
+
+
+
+
 
 
 do
