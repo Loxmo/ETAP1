@@ -86,10 +86,11 @@ do
     if (coupjoue)
     {
         player1isplaying = !player1isplaying;
+        compteurTour++;
     }
     gameEnded = aGagne(grille, symbole);
-    compteurTour++;
-    if(compteurTour == 9)
+    
+    if(compteurTour == 9 && !gameEnded)
     {
         Console.WriteLine("Match nul !!!");
         gameEnded = true;
