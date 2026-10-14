@@ -60,14 +60,32 @@ static bool aGagne(char[,] g, char symbole)
         {
             return true;
         }
+        bool colonneComplete = true;
+        for(int l = 0; l < taille; l++)
+        {
+            if(g[l,i] != symbole)
+            {
+                colonneComplete = false;
+            }
+        }
+        if(colonneComplete)
+        {
+            return true;
+        }
+       
+        if(g[i,i] == symbole)
+        {
+           return true;
+        }
+        else if(g[taille-1-i, i] == symbole)
+        {
+            return true;
+        }
+        
     }
-
+    return false;
 
 }
-
-
-
-
 
 
 do
