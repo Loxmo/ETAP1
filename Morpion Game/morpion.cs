@@ -1,6 +1,7 @@
 bool gameEnded = false;
 bool player1isplaying = true;
 const int taille = 3;
+int compteurTour = 0;
 char[,] grille = new char[taille, taille];//on creer une grille a deux dimension
 char symbole;
 
@@ -45,7 +46,23 @@ static bool jouerCoup(char[,] g, char symbole)
 
 static bool aGagne(char[,]g,char symbole )
 {
+
     //faudrait ptet faire un systeme qui voit que des que 3symboles on la meme collonne ou ligne il fasse gagne d'abord
+    if ((g[0,0]== symbole && g[0,1]== symbole && g[0,2]== symbole)||(g[1,0]== symbole && g[1,1]== symbole && g[1,2]== symbole)||(g[2,0]== symbole && g[2,1]== symbole && g[2,2]== symbole))
+    {
+        Console.WriteLine(symbole + " a gagne !!!");
+        return true;
+    }
+    else if ((g[0,0]== symbole && g[1,0]== symbole && g[2,0]== symbole)||(g[0,1]== symbole && g[1,1]== symbole && g[2,1]== symbole)||(g[0,2]== symbole && g[1,2]== symbole && g[2,2]== symbole))
+    {
+        Console.WriteLine(symbole + " a gagne !!!");
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+     
 }
 
 
@@ -70,6 +87,13 @@ do
     {
         player1isplaying = !player1isplaying;
     }
-    aGagne(grille, symbole);
+    gameEnded = aGagne(grille, symbole);
+    compteurTour++;
+    if(compteurTour == 9)
+    {
+        Console.WriteLine("Match nul !!!");
+        gameEnded = true;
+    }
 }
 while (!gameEnded);
+Console.WriteLine("\nLa Partie est finie !!");

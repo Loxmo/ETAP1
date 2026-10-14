@@ -40,12 +40,12 @@ Tester apres chaque etape avant de passer a la suivante.
 [X] Etape 4 : l'alternance des joueurs
     X puis O puis X... Un tour refuse ne change pas de joueur.
 
-[ ] Etape 5 : la detection de victoire
+[X] Etape 5 : la detection de victoire
     Verifier les 3 lignes, les 3 colonnes et les 2 diagonales.
     C'est la partie la plus difficile : y aller progressivement
     (d'abord les lignes, tester, puis les colonnes, etc.).
 
-[ ] Etape 6 : le match nul
+[X] Etape 6 : le match nul
     Detecter une grille pleine sans gagnant.
 
 [ ] Etape 7 : la fin de partie
