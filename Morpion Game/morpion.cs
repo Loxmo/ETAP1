@@ -44,25 +44,25 @@ static bool jouerCoup(char[,] g, char symbole)
 
 }
 
-static bool aGagne(char[,]g,char symbole )
+static bool aGagne(char[,] g, char symbole)
 {
+    for (int i = 0; i < taille; i++)
+    {
+       bool ligneComplete = true;
+       for(int j = 0; j < taille; j++)
+        {
+            if(g[i,j] != symbole)
+            {
+                ligneComplete = false;
+            }
+        }
+        if (ligneComplete)
+        {
+            return true;
+        }
+    }
 
-    //faudrait ptet faire un systeme qui voit que des que 3symboles on la meme collonne ou ligne il fasse gagne d'abord
-    if ((g[0,0]== symbole && g[0,1]== symbole && g[0,2]== symbole)||(g[1,0]== symbole && g[1,1]== symbole && g[1,2]== symbole)||(g[2,0]== symbole && g[2,1]== symbole && g[2,2]== symbole))
-    {
-        Console.WriteLine(symbole + " a gagne !!!");
-        return true;
-    }
-    else if ((g[0,0]== symbole && g[1,0]== symbole && g[2,0]== symbole)||(g[0,1]== symbole && g[1,1]== symbole && g[2,1]== symbole)||(g[0,2]== symbole && g[1,2]== symbole && g[2,2]== symbole))
-    {
-        Console.WriteLine(symbole + " a gagne !!!");
-        return true;
-    }
-    else
-    {
-        return false;
-    }
-     
+
 }
 
 
@@ -89,8 +89,8 @@ do
         compteurTour++;
     }
     gameEnded = aGagne(grille, symbole);
-    
-    if(compteurTour == 9 && !gameEnded)
+
+    if (compteurTour == 9 && !gameEnded)
     {
         Console.WriteLine("Match nul !!!");
         gameEnded = true;
