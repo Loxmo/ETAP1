@@ -77,7 +77,11 @@ static bool aGagne(char[,] g, char symbole)
         {
             if(g[i,i] == symbole && g[i+1, i+1] == symbole && g[i+2,i+2] == symbole )
             {
-                
+                diagoComplete = true;
+            }
+            if(g[taille-1,taille-1] == symbole && g[taille-2, taille-2] == symbole && g[taille-3, taille-3] == symbole )
+            {
+                diagoComplete = true;
             }
         }
         if(diagoComplete)
