@@ -1,3 +1,6 @@
+using System.Reflection.Metadata;
+
+bool wantToPlay = true;
 bool gameEnded = false;
 bool player1isplaying = true;
 const int taille = 3;
@@ -72,19 +75,21 @@ static bool aGagne(char[,] g, char symbole)
         {
             return true;
         }
-        bool diagoComplete = false;
+        bool diagoComplete = true;
         for (int j = 0; j < taille; j++)
         {
-            if(g[i,i] == symbole && g[i+1, i+1] == symbole && g[i+2,i+2] == symbole )
+            if (g[j, j] != symbole)
             {
-                diagoComplete = true;
-            }
-            if(g[taille-1,taille-1] == symbole && g[taille-2, taille-2] == symbole && g[taille-3, taille-3] == symbole )
-            {
-                diagoComplete = true;
+                diagoComplete = false;
             }
         }
-        if(diagoComplete)
+        if (g[j, j] != symbole)
+        {
+            diagoComplete = false;
+        }
+
+
+        if (diagoComplete)
         {
             return true;
         }
@@ -96,35 +101,60 @@ static bool aGagne(char[,] g, char symbole)
 }
 
 
-
+void nouvellePartie()
+{
+    compteurTour = 0;
+    for (int i = 0; i < taille; i++)
+    {
+        for (int j = 0; j < taille; j++)
+        {
+            grille[i, j] = '\0';
+        }
+    }
+    symbole = 'X';
+}
 
 
 
 do
 {
-    affichageGrille(grille);
+    nouvellePartie();
+    do
+    {
+        affichageGrille(grille);
 
-    if (player1isplaying)
-    {
-        symbole = 'X';
-    }
-    else
-    {
-        symbole = 'O';
-    }
-    bool coupjoue = jouerCoup(grille, symbole);
-    if (coupjoue)
-    {
-        player1isplaying = !player1isplaying;
-        compteurTour++;
-    }
-    gameEnded = aGagne(grille, symbole);
+        if (player1isplaying)
+        {
+            symbole = 'X';
+        }
+        else
+        {
+            symbole = 'O';
+        }
+        bool coupjoue = jouerCoup(grille, symbole);
+        if (coupjoue)
+        {
+            player1isplaying = !player1isplaying;
+            compteurTour++;
+        }
+        gameEnded = aGagne(grille, symbole);
 
-    if (compteurTour == 9 && !gameEnded)
-    {
-        Console.WriteLine("Match nul !!!");
-        gameEnded = true;
+        if (compteurTour == 9 && !gameEnded)
+        {
+            Console.WriteLine("Match nul !!!");
+            gameEnded = true;
+        }
     }
+    while (!gameEnded);
+    Console.WriteLine("\nLa Partie est finie !! " + symbole + " a gagne !!!");
+    Console.WriteLine("Voulez vous rejouer ?  O/N");
+    if (char.TryParse(Console.ReadLine(), out char reponse) && char.ToUpper(reponse) == 'N')
+    {
+        wantToPlay = false;
+    }
+
 }
-while (!gameEnded);
-Console.WriteLine("\nLa Partie est finie !!");
+while (wantToPlay);
+
+
+
