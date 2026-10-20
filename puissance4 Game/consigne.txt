@@ -1,0 +1,125 @@
+==========================================
+  PUISSANCE 4 EN C# (CONSOLE) - CONSIGNES
+==========================================
+
+REGLES DU JEU
+-------------
+- Grille de 6 lignes x 7 colonnes, deux joueurs humains qui
+  jouent a tour de role : X puis O.
+- A chaque tour, le joueur choisit une COLONNE (1 a 7), pas une
+  case. Le pion tombe tout en bas de la colonne, sur la
+  premiere case libre (gravite).
+- Victoire : 4 pions identiques alignes, horizontalement,
+  verticalement ou en diagonale (dans les deux sens).
+- Match nul : la grille est pleine et personne n'a gagne.
+
+
+AFFICHAGE A CHAQUE TOUR
+-----------------------
+- La grille complete, avec les numeros de colonnes au-dessus.
+- Le joueur dont c'est le tour.
+- L'affichage doit s'adapter a la taille de la grille : pas de
+  ligne ecrite en dur pour chaque ligne.
+
+
+CAHIER DES CHARGES (A FAIRE DANS L'ORDRE)
+-----------------------------------------
+Tester apres chaque etape avant de passer a la suivante.
+
+[ ] Etape 1 : la grille vide
+    Creer la grille et l'afficher avec des boucles, a partir de
+    constantes pour le nombre de lignes et de colonnes.
+
+[ ] Etape 2 : un seul coup avec la gravite
+    Demander une colonne, trouver la case libre la plus basse
+    de cette colonne, y placer le symbole, reafficher.
+
+[ ] Etape 3 : la validation
+    - Le numero doit etre un nombre entre 1 et le nombre de
+      colonnes.
+    - La colonne ne doit pas etre pleine.
+    Sinon, redemander sans perdre le tour.
+
+[ ] Etape 4 : l'alternance des joueurs
+    Un tour refuse ne fait pas changer de joueur.
+
+[ ] Etape 5 : la detection de victoire
+    C'est la partie difficile. Contrairement au morpion, on ne
+    peut pas tester "toute la ligne" : il faut reperer 4 pions
+    CONSECUTIFS n'importe ou dans la grille.
+    Y aller en 2 temps : d'abord l'horizontal seul, tester,
+    puis les 3 autres directions.
+
+[ ] Etape 6 : le match nul
+    Detecter une grille pleine sans gagnant.
+
+[ ] Etape 7 : la fin de partie
+    Message correct (victoire OU match nul, jamais les deux),
+    grille finale affichee, proposition de rejouer avec une
+    reinitialisation complete (joueur de depart compris).
+
+
+PISTE POUR L'ETAPE 5 (A REFLECHIR AVANT DE CODER)
+-------------------------------------------------
+Plutot que d'ecrire une verification differente pour chaque
+direction, une direction se decrit par deux nombres :
+combien on avance en ligne et combien en colonne a chaque pas.
+Exemple : "vers la droite" = (0, +1).
+Trouver les quatre directions utiles (horizontale, verticale,
+et deux diagonales) puis ecrire UNE methode qui, a partir d'une
+case de depart et d'une direction, dit si les 4 cases suivantes
+contiennent le meme symbole.
+ATTENTION : avant de lire une case, verifier qu'elle est bien
+DANS la grille. Sinon : IndexOutOfRangeException, comme au
+morpion.
+
+
+OUTILS A EXPLORER SOI-MEME (mots-cles a chercher)
+-------------------------------------------------
+- char[,], .GetLength(0) et .GetLength(1) (lignes / colonnes)
+- boucles imbriquees, y compris des boucles qui vont a l'envers
+  (pour trouver la case libre la plus basse)
+- verification de bornes : une case (l, c) est valide si
+  0 <= l < lignes et 0 <= c < colonnes
+- methodes avec plusieurs parametres et valeur de retour bool
+
+
+REGLES DE TRAVAIL
+-----------------
+1. Ecrire le plan en francais AVANT de coder, et l'envoyer
+   pour relecture.
+2. Methodes obligatoires. Au minimum :
+   - une qui affiche la grille
+   - une qui joue un coup dans une colonne (renvoie un bool)
+   - une qui dit si un joueur a gagne
+   La boucle principale ne contient que l'enchainement.
+3. Pas de nombres magiques : 6, 7 et 4 dans des constantes.
+4. Une decision = un seul endroit dans le code.
+5. Formater le fichier (Shift + Alt + F) et verifier que chaque
+   else est colle au bon if.
+6. Un commit par etape terminee, avec un message clair.
+
+
+TESTS A PASSER AVANT DE CONSIDERER QUE C'EST FINI
+--------------------------------------------------
+[ ] Gravite : un pion tombe bien tout en bas, puis s'empile.
+[ ] Victoire verticale, horizontale, et sur les deux sens de
+    diagonale.
+[ ] Victoire "en bordure" : alignement qui touche le bord droit
+    (colonnes 4 a 7) ou le bord haut (ligne du haut).
+[ ] Victoire de X et victoire de O.
+[ ] Colonne pleine : le coup est refuse, le joueur ne change pas.
+[ ] Entrer 0, 8, -1, une lettre, une phrase, une entree vide.
+[ ] Match nul : astuce, reduire temporairement la grille
+    (ex : 3 x 3, avec alignement de 4 il n'y a jamais de
+    gagnant) pour tester la fin sans jouer 42 coups.
+[ ] Rejouer : grille vide, et le bon joueur commence.
+
+
+DEFIS BONUS (SEULEMENT QUAND TOUT MARCHE)
+-----------------------------------------
+- Mettre en evidence les 4 pions gagnants.
+- Jouer contre l'ordinateur (coups aleatoires, puis une IA qui
+  bloque ou qui gagne si elle le peut).
+- Rendre la taille de la grille et la longueur de l'alignement
+  configurables.
