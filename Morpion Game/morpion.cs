@@ -1,5 +1,5 @@
 using System.Reflection.Metadata;
-
+bool gameDrawed = false;
 bool wantToPlay = true;
 bool gameEnded = false;
 bool player1isplaying = true;
@@ -7,6 +7,7 @@ const int taille = 3;
 int compteurTour = 0;
 char[,] grille = new char[taille, taille];//on creer une grille a deux dimension
 char symbole;
+
 
 
 static void affichageGrille(char[,] b)
@@ -22,7 +23,7 @@ static bool jouerCoup(char[,] g, char symbole)
 {
 
     Console.WriteLine("Quelle case jouer ? ");
-    if (int.TryParse(Console.ReadLine(), out int cellule) && cellule <= 9 && cellule > 0) // on check si c'est un chiffre entre 1 et 9
+    if (int.TryParse(Console.ReadLine(), out int cellule) && cellule <= (taille*taille) && cellule > 0) // on check si c'est un chiffre entre 1 et 9
     {
         cellule -= 1;
         int colonne = cellule % taille;
@@ -75,21 +76,21 @@ static bool aGagne(char[,] g, char symbole)
         {
             return true;
         }
-        bool diagoComplete = true;
+        bool diago1Complete = true;
+        bool diago2Complete = true;
         for (int j = 0; j < taille; j++)
         {
             if (g[j, j] != symbole)
             {
-                diagoComplete = false;
+                diago1Complete = false;
             }
-        }
-        if (g[j, j] != symbole)
-        {
-            diagoComplete = false;
-        }
+            if (g[j, taille - 1 - j] != symbole)
+            {
+                diago2Complete = false;
+            }
 
-
-        if (diagoComplete)
+        }
+        if (diago1Complete || diago2Complete)
         {
             return true;
         }
@@ -111,7 +112,8 @@ void nouvellePartie()
             grille[i, j] = '\0';
         }
     }
-    symbole = 'X';
+    player1isplaying = true;
+    gameDrawed = false;
 }
 
 
@@ -143,10 +145,16 @@ do
         {
             Console.WriteLine("Match nul !!!");
             gameEnded = true;
+            gameDrawed = true;
         }
     }
     while (!gameEnded);
-    Console.WriteLine("\nLa Partie est finie !! " + symbole + " a gagne !!!");
+    affichageGrille(grille);
+    if (!gameDrawed)
+    {
+        Console.WriteLine("\nLa Partie est finie !! " + symbole + " a gagne !!!");
+    }
+
     Console.WriteLine("Voulez vous rejouer ?  O/N");
     if (char.TryParse(Console.ReadLine(), out char reponse) && char.ToUpper(reponse) == 'N')
     {
@@ -155,6 +163,3 @@ do
 
 }
 while (wantToPlay);
-
-
-
