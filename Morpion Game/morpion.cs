@@ -1,4 +1,3 @@
-using System.Reflection.Metadata;
 bool gameDrawed = false;
 bool wantToPlay = true;
 bool gameEnded = false;
