@@ -30,9 +30,16 @@ void nouvellePartie(char[,] g)
         }
     }
 }
+
+
+
+
+
+//boucle principale.
+ nouvellePartie(grille);
 do
 {
-    nouvellePartie(grille);
+   
     affichageGrille(grille);
     gameEnded = true;
 }
