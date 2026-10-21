@@ -26,21 +26,21 @@ CAHIER DES CHARGES (A FAIRE DANS L'ORDRE)
 -----------------------------------------
 Tester apres chaque etape avant de passer a la suivante.
 
-[ ] Etape 1 : la grille vide
+[X] Etape 1 : la grille vide
     Creer la grille et l'afficher avec des boucles, a partir de
     constantes pour le nombre de lignes et de colonnes.
 
-[ ] Etape 2 : un seul coup avec la gravite
+[X] Etape 2 : un seul coup avec la gravite
     Demander une colonne, trouver la case libre la plus basse
     de cette colonne, y placer le symbole, reafficher.
 
-[ ] Etape 3 : la validation
+[X] Etape 3 : la validation
     - Le numero doit etre un nombre entre 1 et le nombre de
       colonnes.
     - La colonne ne doit pas etre pleine.
     Sinon, redemander sans perdre le tour.
 
-[ ] Etape 4 : l'alternance des joueurs
+[X] Etape 4 : l'alternance des joueurs
     Un tour refuse ne fait pas changer de joueur.
 
 [ ] Etape 5 : la detection de victoire
