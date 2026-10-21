@@ -5,6 +5,11 @@ bool gameEnded = false;
 
 void affichageGrille(char[,] g)
 {
+    for(int j = 1; j <= Largeur; j++)
+    {
+        Console.Write($"|{j}|");
+    }
+    Console.Write("\n");
     for(int i = 0; i < Hauteur; i++)
     {
         for(int j = 0; j < Largeur; j++)
